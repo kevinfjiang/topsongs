@@ -1,0 +1,49 @@
+[project]
+name = "topsongs"
+version = "0.1.0"
+description = "List top songs"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.116.1",
+    "python-dotenv>=1.1.1",
+    "ruff>=0.12.4",
+    "spotipy>=2.25.1",
+    "typer>=0.16.0",
+    "uvicorn>=0.35.0",
+]
+
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "C90", "RUF"]
+
+[project.scripts]
+topsongs = "topsongs.__main__:app"
+
+[tool.ruff.lint.per-file-ignores]
+"__main__.py" = ["E501"]
