@@ -1,4 +1,4 @@
-#topsongs
+# topsongs
 
 Simple CLI for retrieving top songs from spotify.
 
