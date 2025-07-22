@@ -3,9 +3,9 @@ from enum import Enum
 from typing import Iterator, Optional
 
 from spotipy import Spotify
+from spotipy.oauth2 import SpotifyAuthBase
 
 from topsongs.io.io_manager import IoManager
-from topsongs.spotify.auth import Auth
 
 
 @dataclass
@@ -20,8 +20,8 @@ class TimeRange(str, Enum):
     SHORT_TERM = "short_term"
 
 class TopSongs:
-    def __init__(self, term: TimeRange, auth: Auth, io_manager: IoManager):
-        self.sp = Spotify(auth_manager=auth.manager)
+    def __init__(self, term: TimeRange, auth: SpotifyAuthBase, io_manager: IoManager):
+        self.sp = Spotify(auth_manager=auth)
         self.limit = 20
         self.time_range = term
         self.io_manager = io_manager
